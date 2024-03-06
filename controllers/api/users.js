@@ -7,24 +7,47 @@ const checkToken = (req, res) => {
   res.json(req.exp)
 }
 
+// const dataController = {
+//   async create (req, res, next) {
+//     try {
+//       const user = await User.create(req.body)
+//       console.log(req.body)
+//       // token will be a string
+//       const token = createJWT(user)
+//       // send back the token as a string
+//       // which we need to account for
+//       // in the client
+//       res.locals.data.user = user
+//       res.locals.data.token = token
+//       next()
+//     } catch (e) {
+//       console.log('you got a database problem')
+//       res.status(400).json(e)
+//     }
+//   },
 const dataController = {
-  async create (req, res, next) {
+  async create(req, res, next) {
     try {
-      const user = await User.create(req.body)
-      console.log(req.body)
+      const user = await User.create(req.body);
+      console.log(req.body);
       // token will be a string
-      const token = createJWT(user)
+      const token = createJWT(user);
       // send back the token as a string
       // which we need to account for
       // in the client
-      res.locals.data.user = user
-      res.locals.data.token = token
-      next()
+      res.locals.data.user = user;
+      res.locals.data.token = token;
+      next();
     } catch (e) {
-      console.log('you got a database problem')
-      res.status(400).json(e)
+      console.error('Error creating user:', e.message);
+      // Handle validation errors
+      if (e.name === 'ValidationError') {
+        return res.status(400).json({ error: e.message });
+      }
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   },
+
   async login (req, res, next) {
     try {
       const user = await User.findOne({ email: req.body.email })
