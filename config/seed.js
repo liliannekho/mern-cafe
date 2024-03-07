@@ -20,7 +20,7 @@ const Item = require('../models/item');
   await Item.deleteMany({});
 
   const items = await Item.create([
-  { name: 'Melange A Espresso', emoji: '', category: categories[0], price: 18.00 },
+  { name: 'Melange A Espresso', emoji: '/public/images/GiftCard.png', category: categories[0], price: 18.00 },
   { name: 'Winter Seasonal Blend', emoji: '🌿', category: categories[0], price: 17.95 },
   { name: 'Nicaragua San Juan', emoji: '🍃', category: categories[0], price: 17.95 },
   { name: 'Polaris Espresso', emoji: '🌱', category: categories[0], price: 18.00 },
