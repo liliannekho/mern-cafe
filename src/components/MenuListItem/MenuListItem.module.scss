@@ -13,9 +13,9 @@
   }
   
   .MenuListItem .emoji {
-    height: 8vw;
-    width: 8vw;
-    font-size: 4vw;
+    height: 15vw;
+    width: 20vw;
+    font-size: 2vw;
     background-color: var(--tan-1);
     border: .1vmin solid var(--tan-3);
     border-radius: 1vmin;
@@ -27,13 +27,19 @@
   }
   
   .MenuListItem .buy span {
-    font-size: 1.7vw;
+    font-size: 1.25vw;
     text-align: center;
     color: var(--text-light);
   }
   
   .MenuListItem .name {
-    font-size: 2vw;
+    font-size: 1.25vw;
     text-align: center;
     color: var(--text-light);
+  }
+
+  .emoji>img {
+    height: 90%;
+    width: 80%;
+    border-radius: 25px;
   }

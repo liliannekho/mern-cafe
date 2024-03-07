@@ -46,6 +46,36 @@ function CategoryList(_ref) {
 /* harmony export */ });
 /* harmony import */ var _LineItem_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LineItem.module.scss */ "./src/components/LineItem/LineItem.module.scss");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+// import styles from './LineItem.module.scss';
+
+// export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
+// return (
+//   <div className={styles.LineItem}>
+//     <div className="flex-ctr-ctr">{lineItem.item.emoji}</div>
+//     <div className="flex-ctr-ctr flex-col">
+//       <span className="align-ctr">{lineItem.item.name}</span>
+//       <span>{lineItem.item.price.toFixed(2)}</span>
+//     </div>
+//     <div className={styles.qty} style={{ justifyContent: isPaid && 'center' }}>
+//       {!isPaid &&
+//         <button
+//           className="btn-xs"
+//           onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
+//         >−</button>
+//       }
+//       <span>{lineItem.qty}</span>
+//       {!isPaid &&
+//         <button
+//           className="btn-xs"
+//           onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}
+//         >+</button>
+//       }
+//     </div>
+//     <div className={styles.extPrice}>${lineItem.extPrice.toFixed(2)}</div>
+//   </div>
+// );
+// }
+
 
 function LineItem(_ref) {
   let {
@@ -57,11 +87,20 @@ function LineItem(_ref) {
     className: _LineItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].LineItem
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex-ctr-ctr"
-  }, lineItem.item.emoji), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: _LineItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].image,
+    src: lineItem.item.emoji,
+    style: {
+      marginLeft: "40px"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
     className: "flex-ctr-ctr flex-col"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "align-ctr"
-  }, lineItem.item.name), /*#__PURE__*/React.createElement("span", null, lineItem.item.price.toFixed(2))), /*#__PURE__*/React.createElement("div", {
+    className: "align-ctr",
+    style: {
+      maraginLeft: "50px"
+    }
+  }, lineItem.item.name)), /*#__PURE__*/React.createElement("div", {
     className: _LineItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].qty,
     style: {
       justifyContent: isPaid && 'center'
@@ -202,13 +241,18 @@ function MenuListItem(_ref) {
     className: _MenuListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].MenuListItem
   }, /*#__PURE__*/React.createElement("div", {
     className: _MenuListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].emoji + ' ' + 'flex-ctr-ctr'
-  }, menuItem.emoji), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    src: menuItem.emoji
+  })), /*#__PURE__*/React.createElement("div", {
     className: _MenuListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].name
   }, menuItem.name), /*#__PURE__*/React.createElement("div", {
     className: _MenuListItem_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].buy
-  }, /*#__PURE__*/React.createElement("span", null, "$", menuItem.price.toFixed(2)), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("span", null, "$", menuItem.price.toLocaleString() + ".00"), /*#__PURE__*/React.createElement("button", {
     className: "btn-sm",
-    onClick: () => handleAddToOrder(menuItem._id)
+    onClick: () => handleAddToOrder(menuItem._id),
+    style: {
+      color: "black"
+    }
   }, "ADD")));
 }
 
@@ -1183,12 +1227,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZeRW57PNaWpYVsw6JlaC {
 
 .ZeRW57PNaWpYVsw6JlaC button {
   margin: 0;
-}`, "",{"version":3,"sources":["webpack://./src/components/LineItem/LineItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,gDAAA;EACA,gBAAA;EACA,wBAAA;EACA,8BAAA;EACA,sCAAA;EACA,gBAAA;AACJ;;AAEI;EACA,yCAAA;AACJ;;AAEI;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,aAAA;EACA,yBAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,SAAA;AACJ","sourcesContent":[".LineItem {\r\n    width: 100%;\r\n    display: grid;\r\n    grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;\r\n    padding: 1vmin 0;\r\n    color: var(--text-light);\r\n    background-color: var(--white);\r\n    border-top: .1vmin solid var(--tan-3);\r\n    font-size: 1.5vw;\r\n    }\r\n    \r\n    .LineItem:last-child {\r\n    border-bottom: .1vmin solid var(--tan-3);\r\n    }\r\n    \r\n    .LineItem .qty {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    font-size: 1.3vw;\r\n    }\r\n    \r\n    .LineItem .extPrice {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 1.3vw;\r\n    }\r\n    \r\n    .LineItem button {\r\n    margin: 0;\r\n    }"],"sourceRoot":""}]);
+}
+
+.ZeRW57PNaWpYVsw6JlaC span {
+  margin: 0;
+}
+
+.AvgB_cwyK_7iUj3oCanH {
+  width: 100px;
+  border-radius: 8px;
+}`, "",{"version":3,"sources":["webpack://./src/components/LineItem/LineItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,gDAAA;EACA,gBAAA;EACA,wBAAA;EACA,8BAAA;EACA,sCAAA;EACA,gBAAA;AACJ;;AAEI;EACA,yCAAA;AACJ;;AAEI;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,aAAA;EACA,yBAAA;EACA,mBAAA;EACA,gBAAA;AACJ;;AAEI;EACA,SAAA;AACJ;;AAEI;EACI,SAAA;AACR;;AAEI;EACI,YAAA;EACA,kBAAA;AACR","sourcesContent":[".LineItem {\r\n    width: 100%;\r\n    display: grid;\r\n    grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;\r\n    padding: 1vmin 0;\r\n    color: var(--text-light);\r\n    background-color: var(--white);\r\n    border-top: .1vmin solid var(--tan-3);\r\n    font-size: 1.5vw;\r\n    }\r\n    \r\n    .LineItem:last-child {\r\n    border-bottom: .1vmin solid var(--tan-3);\r\n    }\r\n    \r\n    .LineItem .qty {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    font-size: 1.3vw;\r\n    }\r\n    \r\n    .LineItem .extPrice {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 1.3vw;\r\n    }\r\n    \r\n    .LineItem button {\r\n    margin: 0;\r\n    }\r\n\r\n    .LineItem span {\r\n        margin:0;\r\n    }\r\n\r\n    .image {\r\n        width: 100px;\r\n        border-radius: 8px;\r\n    }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"LineItem": `ZeRW57PNaWpYVsw6JlaC`,
 	"qty": `Z_MQzAiRjTlxboCrh9om`,
-	"extPrice": `iZ6oJDRJlBAjRnxPhUy5`
+	"extPrice": `iZ6oJDRJlBAjRnxPhUy5`,
+	"image": `AvgB_cwyK_7iUj3oCanH`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1275,9 +1329,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.X4tFBfG4MKknHvd01CKE {
 }
 
 .X4tFBfG4MKknHvd01CKE .GqkE12RHPdZZg1360W4p {
-  height: 8vw;
-  width: 8vw;
-  font-size: 4vw;
+  height: 15vw;
+  width: 20vw;
+  font-size: 2vw;
   background-color: var(--tan-1);
   border: 0.1vmin solid var(--tan-3);
   border-radius: 1vmin;
@@ -1289,16 +1343,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.X4tFBfG4MKknHvd01CKE {
 }
 
 .X4tFBfG4MKknHvd01CKE .fO9kiPygtr0vmzsXoUxA span {
-  font-size: 1.7vw;
+  font-size: 1.25vw;
   text-align: center;
   color: var(--text-light);
 }
 
 .X4tFBfG4MKknHvd01CKE .VR1OCl60qOXrRx1IzVEa {
-  font-size: 2vw;
+  font-size: 1.25vw;
   text-align: center;
   color: var(--text-light);
-}`, "",{"version":3,"sources":["webpack://./src/components/MenuListItem/MenuListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;AACJ;;AAEE;EACE,WAAA;EACA,UAAA;EACA,cAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;AACJ;;AAEE;EACE,gBAAA;EACA,kBAAA;EACA,wBAAA;AACJ;;AAEE;EACE,cAAA;EACA,kBAAA;EACA,wBAAA;AACJ","sourcesContent":[".MenuListItem {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-bottom: 3vmin;\r\n    padding: 2vmin;\r\n    color: var(--text-light);\r\n    background-color: var(--white);\r\n    border: .1vmin solid var(--tan-3);\r\n    border-radius: 1vmin;\r\n    font-size: 4vmin;\r\n  }\r\n  \r\n  .MenuListItem .emoji {\r\n    height: 8vw;\r\n    width: 8vw;\r\n    font-size: 4vw;\r\n    background-color: var(--tan-1);\r\n    border: .1vmin solid var(--tan-3);\r\n    border-radius: 1vmin;\r\n  }\r\n  \r\n  .MenuListItem .buy {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n  \r\n  .MenuListItem .buy span {\r\n    font-size: 1.7vw;\r\n    text-align: center;\r\n    color: var(--text-light);\r\n  }\r\n  \r\n  .MenuListItem .name {\r\n    font-size: 2vw;\r\n    text-align: center;\r\n    color: var(--text-light);\r\n  }"],"sourceRoot":""}]);
+}
+
+.GqkE12RHPdZZg1360W4p > img {
+  height: 90%;
+  width: 80%;
+  border-radius: 25px;
+}`, "",{"version":3,"sources":["webpack://./src/components/MenuListItem/MenuListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;AACJ;;AAEE;EACE,YAAA;EACA,WAAA;EACA,cAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;AACJ;;AAEE;EACE,aAAA;EACA,sBAAA;AACJ;;AAEE;EACE,iBAAA;EACA,kBAAA;EACA,wBAAA;AACJ;;AAEE;EACE,iBAAA;EACA,kBAAA;EACA,wBAAA;AACJ;;AAEE;EACE,WAAA;EACA,UAAA;EACA,mBAAA;AACJ","sourcesContent":[".MenuListItem {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-bottom: 3vmin;\r\n    padding: 2vmin;\r\n    color: var(--text-light);\r\n    background-color: var(--white);\r\n    border: .1vmin solid var(--tan-3);\r\n    border-radius: 1vmin;\r\n    font-size: 4vmin;\r\n  }\r\n  \r\n  .MenuListItem .emoji {\r\n    height: 15vw;\r\n    width: 20vw;\r\n    font-size: 2vw;\r\n    background-color: var(--tan-1);\r\n    border: .1vmin solid var(--tan-3);\r\n    border-radius: 1vmin;\r\n  }\r\n  \r\n  .MenuListItem .buy {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n  \r\n  .MenuListItem .buy span {\r\n    font-size: 1.25vw;\r\n    text-align: center;\r\n    color: var(--text-light);\r\n  }\r\n  \r\n  .MenuListItem .name {\r\n    font-size: 1.25vw;\r\n    text-align: center;\r\n    color: var(--text-light);\r\n  }\r\n\r\n  .emoji>img {\r\n    height: 90%;\r\n    width: 80%;\r\n    border-radius: 25px;\r\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"MenuListItem": `X4tFBfG4MKknHvd01CKE`,
@@ -1336,7 +1396,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.eBz5FvD9TgyIgfFi1MdG {
   margin: 3vmin 0;
   padding: 3vmin;
   overflow-y: scroll;
-}`, "",{"version":3,"sources":["webpack://./src/components/MenuList/MenuList.module.scss"],"names":[],"mappings":"AAAA;EACI,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;AACJ","sourcesContent":[".MenuList {\r\n    background-color: var(--tan-1);\r\n    border: .1vmin solid var(--tan-3);\r\n    border-radius: 2vmin;\r\n    margin: 3vmin 0;\r\n    padding: 3vmin;\r\n    overflow-y: scroll;\r\n    }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/MenuList/MenuList.module.scss"],"names":[],"mappings":"AAAA;EACI,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,eAAA;EACA,cAAA;EACA,kBAAA;AACJ","sourcesContent":[".MenuList {\r\n    background-color: var(--tan-1);\r\n    border: .1vmin solid var(--tan-3);\r\n    border-radius: 2vmin;\r\n    margin: 3vmin 0;\r\n    padding: 3vmin;\r\n    overflow-y: scroll;\r\n    }\r\n "],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"MenuList": `eBz5FvD9TgyIgfFi1MdG`
@@ -1471,7 +1531,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.SbDKL2bctOyC5ZgA0KfW {
 .SbDKL2bctOyC5ZgA0KfW:not(.mOA_Z5p05rn7VW_2oU68):hover {
   border-color: var(--orange);
   border-width: 0.2vmin;
-}`, "",{"version":3,"sources":["webpack://./src/components/OrderListItem/OrderListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;EACA,eAAA;AACJ;;AAEI;EACA,sBAAA;AACJ;;AAEI;EACA,2BAAA;EACA,qBAAA;EACA,eAAA;AACJ;;AAEI;EACA,2BAAA;EACA,qBAAA;AACJ","sourcesContent":[".OrderListItem {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-bottom: 3vmin;\r\n    padding: 2vmin;\r\n    color: var(--text-light);\r\n    background-color: var(--white);\r\n    border: .2vmin solid var(--tan-3);\r\n    border-radius: 1vmin;\r\n    font-size: 2vmin;\r\n    cursor: pointer;\r\n    }\r\n    \r\n    .OrderListItem > div> div:first-child {\r\n    margin-bottom: .5vmin;\r\n    }\r\n    \r\n    .OrderListItem.selected {\r\n    border-color: var(--orange);\r\n    border-width: .2vmin;\r\n    cursor: default;\r\n    }\r\n    \r\n    .OrderListItem:not(.selected):hover {\r\n    border-color: var(--orange);\r\n    border-width: .2vmin;\r\n    }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/OrderListItem/OrderListItem.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,oBAAA;EACA,cAAA;EACA,wBAAA;EACA,8BAAA;EACA,kCAAA;EACA,oBAAA;EACA,gBAAA;EACA,eAAA;AACJ;;AAEI;EACA,sBAAA;AACJ;;AAEI;EACA,2BAAA;EACA,qBAAA;EACA,eAAA;AACJ;;AAEI;EACA,2BAAA;EACA,qBAAA;AACJ","sourcesContent":[".OrderListItem {\r\n    width: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-bottom: 3vmin;\r\n    padding: 2vmin;\r\n    color: var(--text-light);\r\n    background-color: var(--white);\r\n    border: .2vmin solid var(--tan-3);\r\n    border-radius: 1vmin;\r\n    font-size: 2vmin;\r\n    cursor: pointer;\r\n    }\r\n    \r\n    .OrderListItem > div> div:first-child {\r\n    margin-bottom: .5vmin;\r\n    }\r\n    \r\n    .OrderListItem.selected {\r\n    border-color: var(--orange);\r\n    border-width: .2vmin;\r\n    cursor: default;\r\n    }\r\n    \r\n    .OrderListItem:not(.selected):hover {\r\n    border-color: var(--orange);\r\n    border-width: .2vmin;\r\n    }\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"OrderListItem": `SbDKL2bctOyC5ZgA0KfW`,
