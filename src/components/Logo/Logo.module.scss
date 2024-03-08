@@ -1,20 +1,17 @@
 .Logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
     height: 20vmin;
     width: 20vmin;
     display: flex;
-    color:aquamarine;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: var(rgb(233, 80, 80));
-    font-size: 5vmin;
-    border: .6vmin solid var(--tan-2);
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 4px 4px 4px rgba(0.5, 0.5, 0.5, 0.5);
-    -webkit-text-stroke-width: 1px; /* Adjust border width */
-    -webkit-text-stroke-color: rgb(164, 124, 77);
-    letter-spacing: 0.2em;
+    background-color: var(--orange);
+    color: var(--tan-1);
+    font-size: 2.7vmin;
+    border: .6vmin solid var(--white-2);
+    .image{
+        height: 100%;
+        width: 100%;
+    }
     }
