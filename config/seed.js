@@ -22,6 +22,7 @@ const Item = require('../models/item');
   const items = await Item.create([
   { name: 'Melange A Espresso', emoji:'/images/espresso.jpg' , category: categories[0], price: 18.00 },
   { name: 'Winter Seasonal Blend', emoji: '/images/winterBlend.png', category: categories[0], price: 17.95 },
+  { name: 'Nicaragua San Juan', emoji: '/images/sanJuan.jpg', category: categories[0], price: 17.95 },
   { name: 'Polaris Espresso', emoji: '/images/espresso.jpg', category: categories[0], price: 18.00 },
   { name: 'Cafe Latte', emoji: '/images/latte.jpg' ,category: categories[1], price: 5.25 },
   { name: 'Cappuccino', emoji: '/images/cap.jpg', category: categories[1], price: 5.25 },
