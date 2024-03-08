@@ -4,4 +4,3 @@ import AppRouter from './router';
 const root = createRoot(document.getElementById("app"))
 root.render(<StrictMode><AppRouter/></StrictMode>)
 
-index.js
