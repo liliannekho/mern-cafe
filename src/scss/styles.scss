@@ -2,8 +2,8 @@
   --white: ghostwhite;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
-  --tan-3: #684d36;
-  --tan-4: #D3C1AE;
+  --tan-3: rgb(202, 185, 185);
+  --tan-4: #E2D9D1;
   --orange: orangered;
   --text-light: #968c84;
   --text-dark: black;
@@ -21,9 +21,11 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-3);
+  background-image: './public/images/background.png';
+  background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+
 }
 
 code {
